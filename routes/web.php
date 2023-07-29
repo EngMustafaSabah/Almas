@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\GHelper;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
+    $routesFiles = GHelper::getFilesNameInDir(__DIR__ . '/site');
+    GHelper::requireFilesInDir($routesFiles);
+
     return view('site.welcome');
 });
 
 Route::get('/dashboard', function () {
-    // return view('site.welcome');
-
+    $routesFiles = GHelper::getFilesNameInDir(__DIR__ . '/admin');
+    GHelper::requireFilesInDir($routesFiles);
     return view('admin.index');
 });
