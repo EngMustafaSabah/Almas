@@ -2,7 +2,7 @@
 
 use App\Helpers\GHelper;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-    $routesFiles = GHelper::getFilesNameInDir(__DIR__ . '/site');
-    GHelper::requireFilesInDir($routesFiles);
-
-    return view('site.welcome');
+Route::prefix('/')->group(function () {
+    GHelper::requireFilesInDir(
+        GHelper::getFilesNameInDir(__DIR__ . '/site')
+    );
 });
 
+
 Route::get('/dashboard', function () {
-    $routesFiles = GHelper::getFilesNameInDir(__DIR__ . '/admin');
-    GHelper::requireFilesInDir($routesFiles);
+    GHelper::requireFilesInDir(
+        GHelper::getFilesNameInDir(__DIR__ . '/admin')
+    );
     return view('admin.index');
 });
