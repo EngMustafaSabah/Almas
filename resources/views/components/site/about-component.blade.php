@@ -4,6 +4,7 @@
     {{-- <div class="company__area  pt-4 pb-4 mb-4 p-relative"> --}}
 
     {{-- home page --}}
+    {{-- @dd($sections) --}}
     <div class="company__area  pt-4 pb-4  p-relative back1">
 
         <div class="container">
@@ -16,39 +17,36 @@
                         <img src="{{ asset('site/img/about-1.png') }}" alt>
                     </div>
                 </div>
-                <div class="col-xl-6 wow tpfadeRight" data-wow-dدuration=".9s" data-wow-delay=".7s">
+                <div class="col-xl-6 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s">
                     <div class="company__section-box">
 
-                        <h3 class="section-title  char-anim">About Almas Arabic Pack.</h3>
+                        <h3 class="section-title  char-anim">{{ json_decode($sections[0]->title)->en }}</h3>
 
-                        <p class="char-anim-2">
-                            Arabian Diamond Company in Riyadh for packaging solutions
-                            It can be arranged in order
-                            To packaging and custom solutions according to customer demand as you want to
-                            add nationality
-                            to its customers and revive their ideas with the best quality at prices
-                        </p>
+                        <p class="char-anim-2">{{ json_decode($sections[0]->section_content)->en }}</p>
                     </div>
                     <div class="company__service-tab">
                         <ul class="nav nav-tab" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active btn-color-3" id="home-tab" data-bs-toggle="tab"
                                     data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                    aria-selected="true"><span>
-                                        Mission</span></button>
+                                    aria-selected="true">
+                                    <span>{{ ucfirst($sections[1]->name) }}</span>
+                                </button>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link btn-color-3" id="contact-tab" data-bs-toggle="tab"
                                     data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
-                                    aria-selected="false"><span>
-                                        Vission</span></button>
+                                    aria-selected="false">
+                                    <span>{{ ucfirst($sections[2]->name) }}</span>
+                                </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link btn-color-3" id="contact-tab" data-bs-toggle="tab"
                                     data-bs-target="#goal" type="button" role="tab" aria-controls="contact"
-                                    aria-selected="false"><span>
-                                        Goal</span></button>
+                                    aria-selected="false">
+                                    <span>{{ ucfirst($sections[3]->name) }}</span>
+                                </button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -59,15 +57,8 @@
                                         <span><img src="{{ asset('site/img/company/company-tab-1.png') }}" alt></span>
                                     </div>
                                     <div class="company__tab-text">
-                                        <h4>About Mission </h4>
-                                        <span>
-                                            Active participation in improvement
-                                            Marketing appearance to customers from
-                                            By providing innovative packaging solutions
-                                            Amazing and active participation in
-                                            Kingdom's vision 2030 through
-                                            local production
-                                        </span>
+                                        <h4>{{ json_decode($sections[1]->title)->en }} </h4>
+                                        <span>{{ json_decode($sections[1]->section_content)->en }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -78,10 +69,8 @@
                                         <span><img src="{{ asset('site/img/company/company-tab-1.png') }}" alt></span>
                                     </div>
                                     <div class="company__tab-text">
-                                        <h4>About Vission</h4>
-                                        <span>Creativity in providing packaging solutions
-                                            Printing and appearance improvement
-                                            catalog to customers</span>
+                                        <h4>{{ json_decode($sections[2]->title)->en }} </h4>
+                                        <span>{{ json_decode($sections[2]->section_content)->en }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -91,11 +80,8 @@
                                         <span><img src="{{ asset('site/img/company/company-tab-1.png') }}" alt></span>
                                     </div>
                                     <div class="company__tab-text">
-                                        <h4>About Goal</h4>
-                                        <span>Commitment (denial, implementation, delivery)
-                                            Creativity (we design, produce and produce)
-                                            Modernity (we innovate, improve and develop)
-                                            Quality (accuracy, appearance and quality)</span>
+                                        <h4>{{ json_decode($sections[3]->title)->en }} </h4>
+                                        <span>{{ json_decode($sections[3]->section_content)->en }}</span>
                                     </div>
                                 </div>
                             </div>

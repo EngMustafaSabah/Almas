@@ -4,8 +4,8 @@
             <div class="col-xl-12 col-md-9">
                 <div class="work__section-box text-center">
                     <h5 class="section-subtitle title-anim wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                        Customer Journey</h5>
-
+                        {{ json_decode($section->title)->en }}
+                    </h5>
                 </div>
             </div>
         </div>
@@ -21,8 +21,7 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">1- Customer visit </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[0]->title)->en }} </h4>
                     </div>
 
                 </div>
@@ -38,8 +37,7 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">2- product pricing </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[1]->title)->en }} </h4>
                     </div>
 
                 </div>
@@ -55,8 +53,7 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">3- Client follow-up </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[2]->title)->en }} </h4>
                     </div>
 
                 </div>
@@ -72,8 +69,7 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">4- The Design </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[3]->title)->en }} </h4>
                     </div>
 
                 </div>
@@ -90,8 +86,7 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">5- Sign an Agreement </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[4]->title)->en }} </h4>
                     </div>
 
                 </div>
@@ -107,8 +102,7 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">6- Production </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[5]->title)->en }} </h4>
                     </div>
 
                 </div>
@@ -124,10 +118,8 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">7- Delivery </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[6]->title)->en }} </h4>
                     </div>
-
                 </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1.7s">
@@ -141,10 +133,8 @@
                         </span>
                     </div>
                     <div class="feature__content pt-50">
-                        <h4 class="feature__title title-border">8- After-sales service </h4>
-
+                        <h4 class="feature__title title-border"> {{ json_decode($section->childSections[7]->title)->en }} </h4>
                     </div>
-
                 </div>
             </div>
         </div>

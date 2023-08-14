@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <!-- breadcrumb__area  -->
-    <x-site.breadcrumb-component />
+    <x-site.breadcrumb-component :img="'site/img/about-shape-7-2.png'" />
 
     <!-- end  -->
 

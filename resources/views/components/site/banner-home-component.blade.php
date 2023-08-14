@@ -21,15 +21,11 @@
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6">
                 <div class="slider__section-box">
-                    <h4 class="section-subtitle char-anim"> Your Packing Solution Here</h4>
-                    <h3 class="hero-title char-anim">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </h3>
+                    <h4 class="section-subtitle char-anim"> {{ json_decode($section->title)->en }}</h4>
+                    <h3 class="hero-title char-anim">{{ json_decode($section->second_title)->en }} </h3>
                 </div>
                 <div class="slider__content wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
-                    <p class="char-anim-2">It is a long established fact that a reader will be
-                        distracted by the readable content of a page when looking at its layout.
-                        The point of using Lorem Ipsum is that it has .. </p>
+                    <p class="char-anim-2">{{ json_decode($section->section_content)->en }}</p>
                 </div>
                 <div class="slider__btn wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1.1s">
                     <a class="main-btn tp-btn-hover alt-color  it-btn " target="_blank">

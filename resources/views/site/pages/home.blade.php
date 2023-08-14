@@ -32,6 +32,6 @@
     <!-- end  -->
 
     <!-- testimonial -->
-    <x-site.client-home-component />
+    <x-site.testimonial-home-component />
     <!-- end  -->
 @endsection

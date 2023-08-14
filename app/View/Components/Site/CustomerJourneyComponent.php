@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Site;
 
+use App\Models\Site\Section;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +22,10 @@ class CustomerJourneyComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site.customer-journey-component');
+        $section = Section::where('name', 'customer-journey')->with('childSections')->first();
+        return view(
+            'components.site.customer-journey-component',
+            ['section' => $section]
+        );
     }
 }

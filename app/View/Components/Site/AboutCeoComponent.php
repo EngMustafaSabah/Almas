@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Site;
 
+use App\Models\Site\{Page, Section};
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +22,11 @@ class AboutCeoComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site.about-ceo-component');
+        $page = Page::where('slug', 'about')->first();
+        $section = Section::where('page_id', $page->id)->first();
+        return view(
+            'components.site.about-ceo-component',
+            ['section' => $section]
+        );
     }
 }

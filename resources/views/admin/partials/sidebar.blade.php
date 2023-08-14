@@ -39,12 +39,28 @@
                             All components</span> <i class="fe fe-chevron-right side-menu__angle"></i> </a>
                     <ul class="slide-menu child1">
                         <li class="slide side-menu__label1"><a href="#"> All components </a></li>
-                        <li class="slide"><a href="tables.html" class="side-menu__item">tables </a></li>
-                        <li class="slide"><a href="forms.html" class="side-menu__item">forms </a></li>
-                        <li class="slide"><a href="alert&Pagination.html" class="side-menu__item">Alert & Pagination
+                        <li class="slide"><a href="/dashboard/tables" class="side-menu__item">tables </a></li>
+                        <li class="slide"><a href="/dashboard/forms" class="side-menu__item">forms </a></li>
+                        <li class="slide"><a href="/dashboard/alert-pagination" class="side-menu__item">Alert &
+                                Pagination
                             </a></li>
-                        <li class="slide"><a href="cards.html" class="side-menu__item">Cards </a></li>
-                        <li class="slide"><a href="tabs.html" class="side-menu__item">Tabs & Accordions </a></li>
+                        <li class="slide"><a href="/dashboard/cards" class="side-menu__item">Cards </a></li>
+                        <li class="slide"><a href="/dashboard/tabs" class="side-menu__item">Tabs & Accordions </a></li>
+                    </ul>
+                </li>
+                <li class="slide has-sub">
+                    <a href="#" class="side-menu__item"> <i class="bx bx-layer side-menu__icon"></i> <span
+                            class="side-menu__label">
+                            Pages & Sections</span> <i class="fe fe-chevron-right side-menu__angle"></i> </a>
+                    <ul class="slide-menu child1">
+                        {{-- <li class="slide side-menu__label1"><a href="#"> All Pages </a></li> --}}
+                        {{-- <li class="slide"><a href="tables.html" class="side-menu__item">Add Page </a></li> --}}
+
+                        <li class="slide">Pages</li>
+                        <li class="slide"><a href="{{ route('dashboard.page.index') }}" class="side-menu__item">All Pages
+                            </a></li>
+                        {{-- <li class="slide"><a href="{{ route('section.create') }}" class="side-menu__item">Add Section
+                            </a></li> --}}
                     </ul>
                 </li>
                 <!-- End::slide -->

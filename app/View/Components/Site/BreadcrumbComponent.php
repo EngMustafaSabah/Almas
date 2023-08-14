@@ -11,7 +11,7 @@ class BreadcrumbComponent extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public $img)
     {
         //
     }
@@ -21,6 +21,6 @@ class BreadcrumbComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site.breadcrumb-component');
+        return view('components.site.breadcrumb-component', ['img' => $this->img ?? null]);
     }
 }

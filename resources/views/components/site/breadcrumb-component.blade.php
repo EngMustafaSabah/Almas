@@ -14,7 +14,7 @@
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6">
                 <div class="breadcrumb__main-img text-end">
-                    <img src="{{ asset('site/img/about-shape-7-2.png') }}" class="width-bread" alt>
+                    <img src="{{ asset($img) }}" class="width-bread" alt>
                 </div>
             </div>
         </div>
