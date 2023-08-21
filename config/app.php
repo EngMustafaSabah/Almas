@@ -85,6 +85,11 @@ return [
 
     'locale' => 'en',
 
+    'locales' => [
+        'English' => 'en',
+        'Arabic' => 'ar',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -156,6 +161,9 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        //my Providers
+        App\Providers\HelperServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
