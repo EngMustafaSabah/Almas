@@ -11,9 +11,8 @@ class BreadcrumbComponent extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $img)
+    public function __construct(public $title, public $sTitle, public $img)
     {
-        //
     }
 
     /**
@@ -21,6 +20,10 @@ class BreadcrumbComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site.breadcrumb-component', ['img' => $this->img ?? null]);
+        return view('components.site.breadcrumb-component', [
+            'title' => $this->title ?? null,
+            'sTitle' => $this->sTitle ?? null,
+            'img' => $this->img ?? null
+        ]);
     }
 }

@@ -1,0 +1,168 @@
+@extends('admin.layouts.adminlayout')
+
+@section('pageContent')
+    {{-- @dd($data[0]) --}}
+    <!-- Start::app-content -->
+    <div class="main-content app-content">
+        <div class="container-fluid">
+            @if ($errors->all() || session()->has('message'))
+                <div class="row mt-2">
+                    <div class="col-xl-6 mt-auto"></div>
+                    <div class="col-xl-6">
+                        <div class="card-body">
+                            @if ($errors->all())
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-primary rounded-pill alert-dismissible fade show">
+                                        {{ $error }}
+                                        <button type="button" class="btn-close custom-close" data-bs-dismiss="alert"
+                                            aria-label="Close"><i class="bi bi-x"></i></button>
+                                    </div>
+                                @endforeach
+                            @endif
+                            @if (session()->has('message'))
+                                <div class="alert alert-primary rounded-pill alert-dismissible fade show">
+                                    {{ session()->get('message') }}
+                                    <button type="button" class="btn-close custom-close" data-bs-dismiss="alert"
+                                        aria-label="Close"><i class="bi bi-x"></i></button>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endif
+            <!-- Page Header -->
+            <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                <h1 class="page-title fw-semibold fs-18 mb-0">Blog</h1>
+                <div class="ms-md-1 ms-0">
+                    <nav>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- Page Header Close -->
+            <!-- Start::row-1 -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">Blog Table</div>
+                            <a href="{{ route('dashboard.blogs.create') }}" class="btn btn-primary">Add Post</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                @if (count($data) > 0)
+                                    <table class="table text-nowrap table-bordered">
+                                        <thead class="table-warning">
+                                            <tr>
+                                                <th scope="col">title</th>
+                                                <th scope="col">slug</th>
+                                                <th scope="col">short_content</th>
+                                                {{-- <th scope="col">usage</th>
+                                                <th scope="col">type</th>
+                                                <th scope="col">created_by</th> --}}
+                                                {{-- <th scope="col">content</th> --}}
+                                                <th scope="col">status</th>
+                                                <th scope="col">is_active</th>
+                                                <th scope="col">actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $item)
+                                                <tr id="{{ 'row' . $item->id }}">
+                                                    <th scope="row">
+                                                        {{ $item->title }}
+                                                    </th>
+                                                    <td><span
+                                                            class="badge bg-success-transparent">{{ $item->slug }}</span>
+                                                    </td>
+                                                    <td><span
+                                                            class="badge bg-outline-primary">{{ $item->short_content }}</span>
+                                                    </td>
+                                                    {{-- <td><span class="badge bg-outline-primary">{{ $item->usage }}</span>
+                                                    </td>
+                                                    <td><span class="badge bg-outline-primary">{{ $item->type }}</span>
+                                                    </td>
+                                                    <td><span
+                                                            class="badge bg-outline-primary">{{ $item->created_by }}</span>
+                                                    </td> --}}
+                                                    {{-- <td><span
+                                                            class="badge bg-outline-primary">{{ $item->parent->tag_name ?? null }}</span>
+                                                    </td> --}}
+                                                    <td><span class="badge bg-outline-primary">{{ $item->status }}</span>
+                                                    </td>
+                                                    <td><span class="badge bg-outline-primary">{{ $item->is_active }}</span>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="hstack gap-2 fs-15">
+                                                            {{-- <a href="{{ route('dashboard.tags.show', ['tag' => $item->id]) }}"
+                                                                class="btn btn-icon btn-sm btn-success-transparent rounded-pill">
+                                                                <i class="fe fe-eye"></i></a> --}}
+
+                                                            <a class="btn btn-icon btn-sm btn-danger-transparent rounded-pill delete-blog"
+                                                                data-blog-id="{{ $item->id }}" href="#">
+                                                                <i class="ri-delete-bin-line"></i>
+                                                            </a>
+                                                            <a href="{{ route('dashboard.blogs.edit', ['blog' => $item->id]) }}"
+                                                                class="btn btn-icon btn-sm btn-info-transparent rounded-pill">
+                                                                <i class="ri-edit-line"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    No blog until now
+                                @endif
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End::row-1 -->
+        </div>
+    </div>
+    <!-- End::app-content -->
+@endsection
+
+@section('footerscript')
+    <script>
+        const deleteLinks = document.querySelectorAll('.delete-blog');
+
+        deleteLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const blogId = this.getAttribute('data-blog-id');
+                if (confirm('Are you sure you want to delete this Post?')) {
+                    fetch(`/dashboard/blogs/${blogId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                            },
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Handle response as needed, e.g., show a success message
+                            location.reload()
+                            document.getElementById("row" + blogId).remove();
+                            // console.log(data);
+                        })
+                        .catch(error => {
+                            // Handle error, e.g., show an error message
+                            // console.error('error');
+                        });
+                }
+            });
+        });
+    </script>
+@endsection
