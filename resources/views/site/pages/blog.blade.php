@@ -5,8 +5,8 @@
 @section('content')
 {{-- @dd($blogs[0]->created_at->format('M d,Y')) --}}
     <!-- breadcrumb__area  -->
-    <x-site.breadcrumb-component :img="'site/img/chose-7-2.png'" />
-    <!-- end  -->
+    <x-site.breadcrumb-component :title="'Blog'" :sTitle="'Blog'" :img="'site/img/chose-7-2.png'"/>
+        <!-- end  -->
     <!--blog  -->
     <div class="blog-3__area blog-3__mlr pt-4 ">
         <!-- filter  -->
