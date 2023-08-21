@@ -25,3 +25,4 @@
 <link rel="stylesheet" href="{{asset('admin/libs/quill/quill.bubble.css')}}" />
 
 <link rel="stylesheet" href="{{asset('admin/css/adminstyle.css')}}">
+@yield('style')
