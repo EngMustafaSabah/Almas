@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <!-- breadcrumb__area  -->
-    <x-site.breadcrumb-component :img="'site/img/16.png'" />
+    <x-site.breadcrumb-component :title="'Contact us'" :sTitle="'Contact us'" :img="'site/img/16.png'" />
     <!--Contact Us  -->
     <div class="contact__area contact__plr-2 pt-3 pb-5 p-relative fix " id="contac">
         <div class="contact__shape-1 d-none d-lg-block">
