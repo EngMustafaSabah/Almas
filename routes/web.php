@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::prefix('/')->namespace('Site')->group(function () {
+Route::prefix('/')->namespace('App\Http\Controllers\Site')->group(function () {
     GHelper::requireFilesInDir(
         GHelper::getFilesNameInDir(__DIR__ . '/site')
     );

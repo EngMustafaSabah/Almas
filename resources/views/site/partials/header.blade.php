@@ -15,7 +15,7 @@
                                 <li><a href="/about">About</a> </li>
                                 <li><a href="offer.html">Offer</a> </li>
                                 <li><a href="products.html">Products</a> </li>
-                                <li><a href="blog.html">Blog</a> </li>
+                                <li><a href="/blog">Blog</a> </li>
                                 <li><a href="/contact">Contact</a></li>
                                 <li><a href="Vendors.html">Vendors</a> </li>
                                 <li class="lang"><a href="#"> <i class="fa fa-globe" aria-hidden="true"></i>

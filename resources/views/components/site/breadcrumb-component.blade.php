@@ -5,10 +5,11 @@
         <div class="row align-items-center">
             <div class="col-xxl-6 col-xl-6 col-lg-6">
                 <div class="breadcrumb__content z-index">
-                    <h3 class="breadcrumb__title char-anim wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">About
-                        us</h3>
+                    <h3 class="breadcrumb__title char-anim wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                        {{$title}}
+                    </h3>
                     <div class="breadcrumb__button wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                        <a href="#">Home<i class="far fa-angle-right"></i><span>About us</span></a>
+                        <a href="#">Home<i class="far fa-angle-right"></i><span>{{$sTitle}}</span></a>
                     </div>
                 </div>
             </div>

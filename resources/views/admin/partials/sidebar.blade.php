@@ -57,7 +57,33 @@
                         {{-- <li class="slide"><a href="tables.html" class="side-menu__item">Add Page </a></li> --}}
 
                         <li class="slide">Pages</li>
-                        <li class="slide"><a href="{{ route('dashboard.page.index') }}" class="side-menu__item">All Pages
+                        <li class="slide"><a href="{{ route('dashboard.page.index') }}" class="side-menu__item">All
+                                Pages
+                            </a></li>
+                        {{-- <li class="slide"><a href="{{ route('section.create') }}" class="side-menu__item">Add Section
+                            </a></li> --}}
+                    </ul>
+                </li>
+
+                {{-- blog --}}
+                <li class="slide has-sub">
+                    <a href="#" class="side-menu__item"> <i class="bx bx-layer side-menu__icon"></i> <span
+                            class="side-menu__label">
+                            Blog</span> <i class="fe fe-chevron-right side-menu__angle"></i> </a>
+                    <ul class="slide-menu child1">
+                        {{-- <li class="slide side-menu__label1"><a href="#"> All Pages </a></li> --}}
+                        {{-- <li class="slide"><a href="tables.html" class="side-menu__item">Add Page </a></li> --}}
+
+                        {{-- <li class="slide">Tags</li> --}}
+                        <li class="slide"><a href="{{ route('dashboard.tags.index') }}" class="side-menu__item">All
+                                Tags
+                            </a></li>
+                        <li class="slide"><a href="{{ route('dashboard.categories.index') }}" class="side-menu__item">All
+                                Categories
+                            </a></li>
+                        {{-- <li class="slide">Blog</li> --}}
+                        <li class="slide"><a href="{{ route('dashboard.blogs.index') }}" class="side-menu__item">All
+                                Blog
                             </a></li>
                         {{-- <li class="slide"><a href="{{ route('section.create') }}" class="side-menu__item">Add Section
                             </a></li> --}}

@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use Database\Seeders\Admin\PagesSeeder;
-use Database\Seeders\Admin\SectionsSeeder;
-use Database\Seeders\Admin\UsersSeeder;
+use Database\Seeders\Admin\{PagesSeeder, SectionsSeeder, UsersSeeder, BlogSeeder, CategorySeeder, CommentSeeder, TagSeeder};
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,13 +21,17 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Call UsersSeeder
-        $this->call(UsersSeeder::class);
 
-        // Call PagesSeeder
-        $this->call(PagesSeeder::class);
+        $classes = [
+            UsersSeeder::class, // Call UsersSeeder
+            PagesSeeder::class, // Call PagesSeeder
+            SectionsSeeder::class, //Call SectionsSeeder
+            BlogSeeder::class, // Call BlogSeeder
+            CategorySeeder::class, // Call CategorySeeder
+            TagSeeder::class, // Call TagSeeder
+            CommentSeeder::class, // Call CommentSeeder
+        ];
 
-        // Call SectionsSeeder
-        $this->call(SectionsSeeder::class);
+        foreach ($classes as $class) $this->call($class);
     }
 }
