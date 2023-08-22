@@ -85,6 +85,11 @@ return [
 
     'locale' => 'en',
 
+    'locales' => [
+        'English' => 'en',
+        'Arabic' => 'ar',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -156,6 +161,9 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        //my Providers
+        App\Providers\HelperServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -183,6 +191,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
+
     ])->toArray(),
 
 ];
